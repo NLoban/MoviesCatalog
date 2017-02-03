@@ -1,0 +1,12 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+
+.cinema {
+  height: 500px; 
+}
+
+.thumbnail .cinema-img {
+  height: 300px; 
+}
