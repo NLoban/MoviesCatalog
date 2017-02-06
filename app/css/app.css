@@ -3,10 +3,14 @@
  * --------------------------------------------------
  */
 
-.cinema {
+.movie {
   height: 500px; 
 }
 
-.thumbnail .cinema-img {
+.thumbnail .movie-img {
   height: 300px; 
+}
+
+.movie-img{
+  height: 500px; 
 }

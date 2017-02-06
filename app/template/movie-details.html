@@ -1,0 +1,13 @@
+<div class="container" ng-controller="MovieDetailsCtrl">
+    <div class="col-sm-4">
+        <div>
+            <img class="movie-img" ng-src="https://image.tmdb.org/t/p/w500{{MovieDetailsCtrl.data.poster_path}}" alt="...">
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <h1>{{MovieDetailsCtrl.data.original_title}}</h1>
+    </div>
+    
+<!--Title: {{MovieDetailsCtrl.data}}-->
+
+</div>
