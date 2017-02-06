@@ -6,8 +6,38 @@
     </div>
     <div class="col-sm-8">
         <h1>{{MovieDetailsCtrl.data.original_title}}</h1>
+        <h3>Overview</h3>
+        <p>{{MovieDetailsCtrl.data.overview}}</p>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Production Countries</th>
+                    <td><span class="badge" ng-repeat="country in MovieDetailsCtrl.data.production_countries">{{country.name}}</span></td>
+                </tr>
+                <tr>
+                    <th>Production Companies</th>
+                    <td><span class="badge" ng-repeat="company in MovieDetailsCtrl.data.production_companies">{{company.name}}</span></td>
+                </tr>
+                <tr>
+                    <th>Languages</th>
+                    <td><span class="badge" ng-repeat="language in MovieDetailsCtrl.data.spoken_languages">{{language.name}}</span></td>
+                </tr>
+                <tr>
+                    <th>Duration</th>
+                    <td></td>
+                </tr> 
+                <tr>
+                    <th>Genres</th>
+                    <td><span class="badge" ng-repeat="genre in MovieDetailsCtrl.data.genres">{{genre.name}}</span></td>
+                </tr>                
+                <tr>
+                    <th>Homepage</th>
+                    <td><a ng-href="{{MovieDetailsCtrl.data.homepage}}">{{MovieDetailsCtrl.data.homepage}}</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
-<!--Title: {{MovieDetailsCtrl.data}}-->
+Title: {{MovieDetailsCtrl.data | json:4}}
 
 </div>
