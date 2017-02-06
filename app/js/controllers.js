@@ -11,8 +11,7 @@ moviesApp.component("movies", {
 
 moviesApp.component("movieDetails", {
   templateUrl: 'template/movie-details.html',
-  controller: 'MovieDetailsCtrl',
-  controllerAs: 'MovieDetailsCtrl'
+  controller: 'MovieDetailsCtrl'
 });
 
 moviesApp.config(['$locationProvider', '$routeProvider',
@@ -32,7 +31,9 @@ moviesApp.config(['$locationProvider', '$routeProvider',
 
 moviesApp.controller('MoviesCtrl', ['$http', function($http) {
 	var self = this;
-  var url = 'https://api.themoviedb.org/3/movie/popular?api_key=8ca72ae90f15b5d823a990ab310a5160';
+  // var url = 'https://api.themoviedb.org/3/movie/popular?api_key=8ca72ae90f15b5d823a990ab310a5160';
+  // var url = 'https://api.themoviedb.org/3/discover/movie?api_key=8ca72ae90f15b5d823a990ab310a5160';
+  var url = 'https://api.themoviedb.org/4/list/1?api_key=8ca72ae90f15b5d823a990ab310a5160'
   InitializeData($http, self, url);
 }]);
 
@@ -56,6 +57,6 @@ function InitializeData($http, scopeVariable, url) {
   });  
 }
 
-
+    // https://api.themoviedb.org/3/discover/movie?api_key=8ca72ae90f15b5d823a990ab310a5160
 		// url: 'https://api.themoviedb.org/4/list/1?api_key=8ca72ae90f15b5d823a990ab310a5160'
     // 'https://api.themoviedb.org/3/movie/:movieId?api_key=8ca72ae90f15b5d823a990ab310a5160&language=en-US'
