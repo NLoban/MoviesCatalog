@@ -16,15 +16,36 @@ moviesApp.config(['$locationProvider', '$routeProvider',
     $locationProvider.hashPrefix('!');
 
     $routeProvider.
-      when('/popular', {
+      when('/:type/:category', {
         template: '<movies></movies>'
       }).
-      when('/movie/:movieId', {
+      when('/:type/details/:movieId', {
         template: '<movie-details></movie-details>'
       }).
       otherwise('/');
   }
 ]);
+
+moviesApp.factory('DataInitializer', ['$http', '$q', function($http, $q) {
+
+  function getItems(url) {
+     var deferred = $q.defer();
+    $http({
+      method: 'GET', 
+      url: url
+    }).then(function(response) {
+        deferred.resolve(response.data.results === undefined ? response.data : response.data.results);
+      }, function(response) {
+        deferred.reject('Request failed');
+    });
+    return deferred.promise; 
+  }
+
+  return  {
+    getItems: getItems
+  }
+   
+}] )
 
 moviesApp.service('translationService', function($resource) {  
     this.getTranslation = function($scope, language) {

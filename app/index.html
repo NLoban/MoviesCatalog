@@ -21,23 +21,22 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#!/popular">Popular <span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$mainCtrl.translation.MOVIES}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">{{$mainCtrl.translation.POPULAR}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.TOP_RATED}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.UPCOMING}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.NOW_PLAYING}}</a></li>
+                <li><a href="#!/movie/popular">{{$mainCtrl.translation.POPULAR}}</a></li>
+                <li><a href="#!/movie/top_rated">{{$mainCtrl.translation.TOP_RATED}}</a></li>
+                <li><a href="#!/movie/upcoming">{{$mainCtrl.translation.UPCOMING}}</a></li>
+                <li><a href="#!/movie/now_playing">{{$mainCtrl.translation.NOW_PLAYING}}</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$mainCtrl.translation.TV_SHOWS}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">{{$mainCtrl.translation.POPULAR}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.TOP_RATED}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.ON_TV}}</a></li>
-                <li><a href="#">{{$mainCtrl.translation.AIRING_TODAY}}</a></li>
+                <li><a href="#!/tv/popular">{{$mainCtrl.translation.POPULAR}}</a></li>
+                <li><a href="#!/tv/top_rated">{{$mainCtrl.translation.TOP_RATED}}</a></li>
+                <li><a href="#!/tv/on_the_air">{{$mainCtrl.translation.ON_TV}}</a></li>
+                <li><a href="#!/tv/airing_today">{{$mainCtrl.translation.AIRING_TODAY}}</a></li>
               </ul>
             </li>
           </ul>
