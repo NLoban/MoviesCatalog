@@ -1,0 +1,21 @@
+{
+    "MOVIES": "Фильмы",
+    "TV_SHOWS": "Сериалы",
+    "POPULAR": "Популярные",
+    "TOP_RATED": "Топ",
+    "UPCOMING": "Скоро",
+    "NOW_PLAYING": "Сейчас",
+    "ON_TV": "На ТВ",
+    "AIRING_TODAY": "Сегодня на ТВ",
+    "LANGUAGE": "Язык",
+    "LANGUAGE_NAME": "Русский",
+    "SEARCH": "Поиск",
+    "OVERVIEW": "Сюжет",
+    "FILM_LANGUAGES": "Язык",
+    "PRODUCTION_COUNTRIES": "Страна-производитель",
+    "PRODUCTION_COMPANIES": "Кинокомпания",
+    "DURATION": "Продолжительность",
+    "GENRES": "Жанры",
+    "HOMEPAGE": "Домашняя страница",
+    "MORE": "Подробнее..."
+}

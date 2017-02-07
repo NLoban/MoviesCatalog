@@ -1,0 +1,21 @@
+{
+    "MOVIES": "Movies",
+    "TV_SHOWS": "TV Shows",
+    "POPULAR": "Popular",
+    "TOP_RATED": "Top Rated",
+    "UPCOMING": "Upcoming",
+    "NOW_PLAYING": "Now Playing",
+    "ON_TV": "On TV",
+    "AIRING_TODAY": "Airing Today",
+    "LANGUAGE": "Language",
+    "LANGUAGE_NAME": "English",
+    "SEARCH": "Search",
+    "OVERVIEW": "Overview",
+    "FILM_LANGUAGES": "Languages",
+    "PRODUCTION_COUNTRIES": "Production Countries",
+    "PRODUCTION_COMPANIES": "Production Companies",
+    "DURATION": "Duration",
+    "GENRES": "Genres",
+    "HOMEPAGE": "Homepage",
+    "MORE": "More..."
+}

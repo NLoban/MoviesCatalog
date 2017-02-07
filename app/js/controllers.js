@@ -1,33 +1,15 @@
 'use strict';
 
-var moviesApp = angular.module("moviesApp", ['ngRoute']);
+moviesApp.controller('MainCtrl', ['translationService', function (translationService){
+  var self = this;
+  this.translate = function(language){
+      translationService.getTranslation(self, language === undefined ? self.selectedLanguage : language);
+      self.selectedLanguage = language === undefined ? self.selectedLanguage : language;
+  };
 
-
-moviesApp.component("movies", {
-  templateUrl: 'template/movies.html',
-  controller: 'MoviesCtrl',
-  controllerAs: 'MoviesCtrl'
-});
-
-moviesApp.component("movieDetails", {
-  templateUrl: 'template/movie-details.html',
-  controller: 'MovieDetailsCtrl'
-});
-
-moviesApp.config(['$locationProvider', '$routeProvider',
-  function config($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
-
-    $routeProvider.
-      when('/popular', {
-        template: '<movies></movies>'
-      }).
-      when('/movie/:movieId', {
-        template: '<movie-details></movie-details>'
-      }).
-      otherwise('/');
-  }
-]);
+  this.selectedLanguage = 'en';
+  this.translate();  
+}]);
 
 moviesApp.controller('MoviesCtrl', ['$http', function($http) {
 	var self = this;

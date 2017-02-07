@@ -6,32 +6,32 @@
     </div>
     <div class="col-sm-8">
         <h1>{{$ctrl.data.original_title}}</h1>
-        <h3>Overview</h3>
+        <h3>{{MainCtrl.translation.OVERVIEW}}</h3>
         <p>{{$ctrl.data.overview}}</p>
         <table class="table">
             <tbody>
                 <tr>
-                    <th>Production Countries</th>
+                    <th>{{translation.PRODUCTION_COUNTRIES}}</th>
                     <td><span class="badge" ng-repeat="country in $ctrl.data.production_countries">{{country.name}}</span></td>
                 </tr>
                 <tr>
-                    <th>Production Companies</th>
+                    <th>{{translation.PRODUCTION_COMPANIES}}</th>
                     <td><span class="badge" ng-repeat="company in $ctrl.data.production_companies">{{company.name}}</span></td>
                 </tr>
                 <tr>
-                    <th>Languages</th>
+                    <th>{{translation.FILM_LANGUAGES}}</th>
                     <td><span class="badge" ng-repeat="language in $ctrl.data.spoken_languages">{{language.name}}</span></td>
                 </tr>
                 <tr>
-                    <th>Duration</th>
+                    <th>{{translation.DURATION}}</th>
                     <td></td>
                 </tr> 
                 <tr>
-                    <th>Genres</th>
+                    <th>{{translation.GENRES}}</th>
                     <td><span class="badge" ng-repeat="genre in $ctrl.data.genres">{{genre.name}}</span></td>
                 </tr>                
                 <tr>
-                    <th>Homepage</th>
+                    <th>{{translation.HOMEPAGE}}</th>
                     <td><a ng-href="{{$ctrl.data.homepage}}">{{$ctrl.data.homepage}}</a></td>
                 </tr>
             </tbody>
