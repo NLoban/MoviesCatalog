@@ -5,33 +5,33 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <h1>{{$ctrl.data.original_title}}</h1>
-        <h3>{{MainCtrl.translation.OVERVIEW}}</h3>
+        <h1>{{$ctrl.data.title}}</h1>
+        <h3>{{'OVERVIEW' | translate}}</h3>
         <p>{{$ctrl.data.overview}}</p>
         <table class="table">
             <tbody>
                 <tr>
-                    <th>{{translation.PRODUCTION_COUNTRIES}}</th>
+                    <th>{{'PRODUCTION_COUNTRIES' | translate}}</th>
                     <td><span class="badge" ng-repeat="country in $ctrl.data.production_countries">{{country.name}}</span></td>
                 </tr>
                 <tr>
-                    <th>{{translation.PRODUCTION_COMPANIES}}</th>
+                    <th>{{'PRODUCTION_COMPANIES' | translate}}</th>
                     <td><span class="badge" ng-repeat="company in $ctrl.data.production_companies">{{company.name}}</span></td>
                 </tr>
                 <tr>
-                    <th>{{translation.FILM_LANGUAGES}}</th>
-                    <td><span class="badge" ng-repeat="language in $ctrl.data.spoken_languages">{{language.name}}</span></td>
+                    <th>{{'FILM_LANGUAGES' | translate}}</th>
+                    <td><span>{{$ctrl.data.original_language}}</span></td>
                 </tr>
                 <tr>
-                    <th>{{translation.DURATION}}</th>
+                    <th>{{'DURATION' | translate}}</th>
                     <td></td>
                 </tr> 
                 <tr>
-                    <th>{{translation.GENRES}}</th>
+                    <th>{{'GENRES' | translate}}</th>
                     <td><span class="badge" ng-repeat="genre in $ctrl.data.genres">{{genre.name}}</span></td>
                 </tr>                
                 <tr>
-                    <th>{{translation.HOMEPAGE}}</th>
+                    <th>{{'HOMEPAGE' | translate}}</th>
                     <td><a ng-href="{{$ctrl.data.homepage}}">{{$ctrl.data.homepage}}</a></td>
                 </tr>
             </tbody>

@@ -3,6 +3,8 @@
 <script src="libraries/angular-1.6.1/angular.js"></script>
 <script src="libraries/angular-1.6.1/angular-route.js"></script>
 <script src="libraries/angular-1.6.1/angular-resource.js"></script>
+<script src="libraries/angular-translate/angular-translate.js"></script>
+<script src="libraries/angular-translate/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script src="libraries/jquery-3.1.1.min.js"></script>
 <script src="libraries/bootstrap.js"></script>
 <script src="js/app.js"></script>
@@ -22,39 +24,33 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$mainCtrl.translation.MOVIES}} <span class="caret"></span></a>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'MOVIES' | translate}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#!/movie/popular">{{$mainCtrl.translation.POPULAR}}</a></li>
-                <li><a href="#!/movie/top_rated">{{$mainCtrl.translation.TOP_RATED}}</a></li>
-                <li><a href="#!/movie/upcoming">{{$mainCtrl.translation.UPCOMING}}</a></li>
-                <li><a href="#!/movie/now_playing">{{$mainCtrl.translation.NOW_PLAYING}}</a></li>
+                <li><a href="#!/movie/popular">{{'POPULAR' | translate}}</a></li>
+                <li><a href="#!/movie/top_rated">{{'TOP_RATED' | translate}}</a></li>
+                <li><a href="#!/movie/upcoming">{{'UPCOMING' | translate}}</a></li>
+                <li><a href="#!/movie/now_playing">{{'NOW_PLAYING' | translate}}</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$mainCtrl.translation.TV_SHOWS}} <span class="caret"></span></a>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'TV_SHOWS' | translate}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#!/tv/popular">{{$mainCtrl.translation.POPULAR}}</a></li>
-                <li><a href="#!/tv/top_rated">{{$mainCtrl.translation.TOP_RATED}}</a></li>
-                <li><a href="#!/tv/on_the_air">{{$mainCtrl.translation.ON_TV}}</a></li>
-                <li><a href="#!/tv/airing_today">{{$mainCtrl.translation.AIRING_TODAY}}</a></li>
+                <li><a href="#!/tv/popular">{{'POPULAR' | translate}}</a></li>
+                <li><a href="#!/tv/top_rated">{{'TOP_RATED' | translate}}</a></li>
+                <li><a href="#!/tv/on_the_air">{{'ON_TV' | translate}}</a></li>
+                <li><a href="#!/tv/airing_today">{{'AIRING_TODAY' | translate}}</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-model="selectedLanguage">{{$mainCtrl.translation.LANGUAGE}}: <strong>{{$mainCtrl.selectedLanguage}}</strong> <span class="caret"></span></a>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-model="selectedLanguage">{{'LANGUAGE' | translate}}: <strong>{{$mainCtrl.selectedLanguage}}</strong> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="" ng-click="$mainCtrl.translate('en')">English</a></li>
-                <li><a href="" ng-click="$mainCtrl.translate('ru')">Русский</a></li>
+                <li><a href="" ng-click="$mainCtrl.changeLanguage('en')">English</a></li>
+                <li><a href="" ng-click="$mainCtrl.changeLanguage('ru')">Русский</a></li>
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="{{$mainCtrl.translation.SEARCH}}">
-            </div>
-            <button type="submit" class="btn btn-default">{{$mainCtrl.translation.SEARCH}}</button>
-          </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
