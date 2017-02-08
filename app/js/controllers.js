@@ -38,8 +38,33 @@ moviesApp.controller('MovieDetailsCtrl', ['$http', '$routeParams', '$q', 'DataIn
       + $routeParams.movieId
       + '?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
       + selectedLanguage;
+      
+    var urlImages = 'https://api.themoviedb.org/3/'
+      + $routeParams.type
+      + '/'
+      + $routeParams.movieId
+      + '/images?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
+      + selectedLanguage;
+
+      
+    var urlVideos = 'https://api.themoviedb.org/3/'
+      + $routeParams.type
+      + '/'
+      + $routeParams.movieId
+      + '/videos?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
+      + selectedLanguage;
+
+      console.log(urlImages);
     DataInitializer.getItems(url).then(function (result) {
       self.data = result;
+    });
+
+    DataInitializer.getItems(urlImages).then(function (result) {
+      self.images = result;
+    });
+
+    DataInitializer.getItems(urlVideos).then(function (result) {
+      self.videos = result;
     });
   }]);
 
