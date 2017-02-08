@@ -3,57 +3,70 @@
 <script src="libraries/angular-1.6.1/angular.js"></script>
 <script src="libraries/angular-1.6.1/angular-route.js"></script>
 <script src="libraries/angular-1.6.1/angular-resource.js"></script>
+<script src="libraries/angular-1.6.1/angular-animate.js"></script>
+<script src="libraries/angular-1.6.1/angular-sanitize.js"></script>
 <script src="libraries/angular-translate/angular-translate.js"></script>
 <script src="libraries/angular-translate/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 <script src="libraries/jquery-3.1.1.min.js"></script>
 <script src="libraries/bootstrap.js"></script>
+<script src="libraries/ui-bootstrap-tpls-2.5.0.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/app.css">
+
 <head>
-    <title>Movies Catalog</title>
+  <title>Movies Catalog</title>
 </head>
+
 <body ng-controller="MainCtrl as $mainCtrl">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Movies catalog</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'MOVIES' | translate}} <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#!/movie/popular">{{'POPULAR' | translate}}</a></li>
-                <li><a href="#!/movie/top_rated">{{'TOP_RATED' | translate}}</a></li>
-                <li><a href="#!/movie/upcoming">{{'UPCOMING' | translate}}</a></li>
-                <li><a href="#!/movie/now_playing">{{'NOW_PLAYING' | translate}}</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'TV_SHOWS' | translate}} <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#!/tv/popular">{{'POPULAR' | translate}}</a></li>
-                <li><a href="#!/tv/top_rated">{{'TOP_RATED' | translate}}</a></li>
-                <li><a href="#!/tv/on_the_air">{{'ON_TV' | translate}}</a></li>
-                <li><a href="#!/tv/airing_today">{{'AIRING_TODAY' | translate}}</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-model="selectedLanguage">{{'LANGUAGE' | translate}}: <strong>{{$mainCtrl.selectedLanguage}}</strong> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="" ng-click="$mainCtrl.changeLanguage('en')">English</a></li>
-                <li><a href="" ng-click="$mainCtrl.changeLanguage('ru')">Русский</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <ng-view></ng-view>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Movies catalog</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'MOVIES' | translate}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#!/movie/popular">{{'POPULAR' | translate}}</a></li>
+              <li><a href="#!/movie/top_rated">{{'TOP_RATED' | translate}}</a></li>
+              <li><a href="#!/movie/upcoming">{{'UPCOMING' | translate}}</a></li>
+              <li><a href="#!/movie/now_playing">{{'NOW_PLAYING' | translate}}</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'TV_SHOWS' | translate}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#!/tv/popular">{{'POPULAR' | translate}}</a></li>
+              <li><a href="#!/tv/top_rated">{{'TOP_RATED' | translate}}</a></li>
+              <li><a href="#!/tv/on_the_air">{{'ON_TV' | translate}}</a></li>
+              <li><a href="#!/tv/airing_today">{{'AIRING_TODAY' | translate}}</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-model="selectedLanguage">{{'LANGUAGE' | translate}}: <strong>{{$mainCtrl.selectedLanguage}}</strong> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="" ng-click="$mainCtrl.changeLanguage('en')">English</a></li>
+              <li><a href="" ng-click="$mainCtrl.changeLanguage('ru')">Русский</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <ng-view></ng-view>
+  <footer class="bs-docs-footer">
+    <div class="container">
+      <p>Movies Catalog</p>
+    </div>
+  </footer>
 </body>
+
 </html>

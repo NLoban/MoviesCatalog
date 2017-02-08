@@ -1,5 +1,5 @@
 
-var moviesApp = angular.module("moviesApp", ['ngRoute', 'ngResource', 'pascalprecht.translate']);
+var moviesApp = angular.module("moviesApp", ['ngRoute', 'ngResource', 'pascalprecht.translate', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
 moviesApp.component("movies", {
     templateUrl: 'template/movies.html',
@@ -22,8 +22,7 @@ moviesApp.config(['$locationProvider', '$routeProvider', '$translateProvider',
             }).
             when('/:type/details/:movieId', {
                 template: '<movie-details></movie-details>'
-            }).
-            otherwise('/');
+            });
 
         $translateProvider.useStaticFilesLoader({
             prefix: '/resources/translation_',
@@ -53,4 +52,10 @@ moviesApp.factory('DataInitializer', ['$http', '$q', function ($http, $q) {
         getItems: getItems
     }
 
-}])
+}]);
+
+moviesApp.filter('youtubeEmbedUrl', function ($sce) {
+    return function (videoId) {
+        return $sce.trustAsResourceUrl('https://www.youtube.com/v/' + videoId);
+    };
+});

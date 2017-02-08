@@ -1,43 +1,82 @@
 <div class="container">
-    <div class="col-sm-4">
-        <div>
-            <img class="movie-img" ng-src="https://image.tmdb.org/t/p/w500{{$ctrl.data.poster_path}}" alt="...">
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <img class="movie-img" ng-src="https://image.tmdb.org/t/p/w500{{$ctrl.data.poster_path}}" alt="...">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <h1>{{$ctrl.data.title}}</h1>
+            <h3>{{'OVERVIEW' | translate}}</h3>
+            <p>{{$ctrl.data.overview}}</p>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>{{'PRODUCTION_COUNTRIES' | translate}}</th>
+                        <td><span class="badge" ng-repeat="country in $ctrl.data.production_countries">{{country.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'PRODUCTION_COMPANIES' | translate}}</th>
+                        <td><span class="badge" ng-repeat="company in $ctrl.data.production_companies">{{company.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'FILM_LANGUAGES' | translate}}</th>
+                        <td><span class="badge">{{$ctrl.data.original_language}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'DURATION' | translate}}</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>{{'GENRES' | translate}}</th>
+                        <td><span class="badge" ng-repeat="genre in $ctrl.data.genres">{{genre.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'HOMEPAGE' | translate}}</th>
+                        <td><a ng-href="{{$ctrl.data.homepage}}">{{$ctrl.data.homepage}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="col-sm-8">
-        <h1>{{$ctrl.data.title}}</h1>
-        <h3>{{'OVERVIEW' | translate}}</h3>
-        <p>{{$ctrl.data.overview}}</p>
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>{{'PRODUCTION_COUNTRIES' | translate}}</th>
-                    <td><span class="badge" ng-repeat="country in $ctrl.data.production_countries">{{country.name}}</span></td>
-                </tr>
-                <tr>
-                    <th>{{'PRODUCTION_COMPANIES' | translate}}</th>
-                    <td><span class="badge" ng-repeat="company in $ctrl.data.production_companies">{{company.name}}</span></td>
-                </tr>
-                <tr>
-                    <th>{{'FILM_LANGUAGES' | translate}}</th>
-                    <td><span>{{$ctrl.data.original_language}}</span></td>
-                </tr>
-                <tr>
-                    <th>{{'DURATION' | translate}}</th>
-                    <td></td>
-                </tr> 
-                <tr>
-                    <th>{{'GENRES' | translate}}</th>
-                    <td><span class="badge" ng-repeat="genre in $ctrl.data.genres">{{genre.name}}</span></td>
-                </tr>                
-                <tr>
-                    <th>{{'HOMEPAGE' | translate}}</th>
-                    <td><a ng-href="{{$ctrl.data.homepage}}">{{$ctrl.data.homepage}}</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-Title: {{$ctrl.data | json:4}}
+    <h2>{{'MEDIA' | translate}}</h2>
+
+    <uib-tabset class="media" active="activeJustified" justified="true">
+        <uib-tab index="0" heading="{{'BACKDROPS' | translate}}">
+            <div uib-carousel active="active" no-wrap="noWrapSlides">
+                <div class="mediacontent" uib-slide ng-repeat="image in $ctrl.images.backdrops track by $index" index="$index">
+                    <img ng-src="https://image.tmdb.org/t/p/w600{{image.file_path}}" style="margin:auto;">
+                    <div class="carousel-caption"></div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="{{'POSTERS' | translate}}">
+            <div uib-carousel active="active" no-wrap="noWrapSlides">
+                <div class="mediacontent" uib-slide ng-repeat="image in $ctrl.images.posters track by $index" index="$index">
+                    <img ng-src="https://image.tmdb.org/t/p/w600{{image.file_path}}" style="margin:auto;">
+                    <div class="carousel-caption"></div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="{{'VIDEO' | translate}}">
+            <div class="mediacontent" uib-carousel active="active" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="video in $ctrl.videos track by $index" index="$index">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item video" ng-src="{{video.key | youtubeEmbedUrl}}"></iframe>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+    <!--<div ng-repeat="video in $ctrl.videos track by $index" index="$index">
+        <a href="https://www.youtube.com/watch?v={{video.key}}">{{video.key}}</a>
+    </div>-->
+    <!--<div ng-repeat="video in $ctrl.videos track by $index" index="$index">
+        {{$index}}
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" ng-src="https://www.youtube.com/watch?v={{video.key}}"></iframe>
+        </div>
+    </div>-->
+    <!--Title: {{$ctrl.data | json:4}}-->
 
 </div>
