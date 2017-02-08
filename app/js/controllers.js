@@ -28,42 +28,21 @@ moviesApp.controller('MoviesCtrl', ['$http', '$routeParams', '$q', 'DataInitiali
     self.type = $routeParams.type;
   }]);
 
-moviesApp.controller('MovieDetailsCtrl', ['$http', '$routeParams', '$q', 'DataInitializer', '$translate',
-  function ($http, $routeParams, $q, DataInitializer, $translate) {
+moviesApp.controller('MovieDetailsCtrl', ['$http', '$routeParams', '$q', 'DataInitializer', 'UrlInitializer', '$translate',
+  function ($http, $routeParams, $q, DataInitializer, UrlInitializer, $translate) {
     var self = this;
     var selectedLanguage = $translate.use();
-    var url = 'https://api.themoviedb.org/3/'
-      + $routeParams.type
-      + '/'
-      + $routeParams.movieId
-      + '?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
-      + selectedLanguage;
-      
-    var urlImages = 'https://api.themoviedb.org/3/'
-      + $routeParams.type
-      + '/'
-      + $routeParams.movieId
-      + '/images?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
-      + selectedLanguage;
+    var urls = UrlInitializer.getUrls();
 
-      
-    var urlVideos = 'https://api.themoviedb.org/3/'
-      + $routeParams.type
-      + '/'
-      + $routeParams.movieId
-      + '/videos?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
-      + selectedLanguage;
-
-      console.log(urlImages);
-    DataInitializer.getItems(url).then(function (result) {
+    DataInitializer.getItems(urls.info).then(function (result) {
       self.data = result;
     });
 
-    DataInitializer.getItems(urlImages).then(function (result) {
+    DataInitializer.getItems(urls.images).then(function (result) {
       self.images = result;
     });
 
-    DataInitializer.getItems(urlVideos).then(function (result) {
+    DataInitializer.getItems(urls.videos).then(function (result) {
       self.videos = result;
     });
   }]);

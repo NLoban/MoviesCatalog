@@ -3,8 +3,7 @@ var moviesApp = angular.module("moviesApp", ['ngRoute', 'ngResource', 'pascalpre
 
 moviesApp.component("movies", {
     templateUrl: 'template/movies.html',
-    controller: 'MoviesCtrl',
-    controllerAs: 'MoviesCtrl'
+    controller: 'MoviesCtrl'
 });
 
 moviesApp.component("movieDetails", {
@@ -52,6 +51,43 @@ moviesApp.factory('DataInitializer', ['$http', '$q', function ($http, $q) {
         getItems: getItems
     }
 
+}]);
+
+moviesApp.factory('UrlInitializer', ['$routeParams', '$translate', function ($routeParams, $translate) {
+    function getUrls() {
+        var selectedLanguage = $translate.use();
+        var url = 'https://api.themoviedb.org/3/'
+            + $routeParams.type
+            + '/'
+            + $routeParams.movieId
+            + '?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
+            + selectedLanguage;
+
+        var urlImages = 'https://api.themoviedb.org/3/'
+            + $routeParams.type
+            + '/'
+            + $routeParams.movieId
+            + '/images?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
+            + selectedLanguage;
+
+
+        var urlVideos = 'https://api.themoviedb.org/3/'
+            + $routeParams.type
+            + '/'
+            + $routeParams.movieId
+            + '/videos?api_key=8ca72ae90f15b5d823a990ab310a5160&language='
+            + selectedLanguage;
+
+        return {
+            info : url,
+            images : urlImages,
+            videos : urlVideos
+        };
+    }
+
+    return {
+        getUrls: getUrls
+    }
 }]);
 
 moviesApp.filter('youtubeEmbedUrl', function ($sce) {
