@@ -27,13 +27,15 @@ moviesApp.config(['$locationProvider', '$routeProvider', '$translateProvider',
             prefix: '/resources/translation_',
             suffix: '.json'
         });
-
-        $translateProvider.preferredLanguage('en');
+   
+        if (storage.type != localStorage) {
+            storage.type = localStorage;
+            $translateProvider.preferredLanguage(storage.get('language', 'en'));
+        }
     }
 ]);
 
 moviesApp.factory('DataInitializer', ['$http', '$q', function ($http, $q) {
-
     function getItems(url) {
         var deferred = $q.defer();
         $http({
@@ -55,7 +57,7 @@ moviesApp.factory('DataInitializer', ['$http', '$q', function ($http, $q) {
 
 moviesApp.factory('UrlInitializer', ['$routeParams', '$translate', function ($routeParams, $translate) {
     function getUrls() {
-        var selectedLanguage = $translate.use();
+        var selectedLanguage = storage.get('language');
         var url = 'https://api.themoviedb.org/3/'
             + $routeParams.type
             + '/'
@@ -79,9 +81,9 @@ moviesApp.factory('UrlInitializer', ['$routeParams', '$translate', function ($ro
             + selectedLanguage;
 
         return {
-            info : url,
-            images : urlImages,
-            videos : urlVideos
+            info: url,
+            images: urlImages,
+            videos: urlVideos
         };
     }
 

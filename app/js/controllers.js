@@ -5,16 +5,17 @@ moviesApp.controller('MainCtrl', ['$translate', '$route', function ($translate, 
   this.changeLanguage = function (language) {
     $translate.use(language);
     self.selectedLanguage = language;
+    storage.set('language', language);
     $route.reload();
   };
 
-  this.selectedLanguage = 'en';
+  this.selectedLanguage = storage.get('language', 'en');
 }]);
 
 moviesApp.controller('MoviesCtrl', ['$http', '$routeParams', '$q', 'DataInitializer', '$translate',
   function ($http, $routeParams, $q, DataInitializer, $translate) {
     var self = this;
-    var selectedLanguage = $translate.use();
+    var selectedLanguage = storage.get('language');
     var url = 'https://api.themoviedb.org/3/'
       + $routeParams.type
       + '/'
@@ -31,7 +32,6 @@ moviesApp.controller('MoviesCtrl', ['$http', '$routeParams', '$q', 'DataInitiali
 moviesApp.controller('MovieDetailsCtrl', ['$http', '$routeParams', '$q', 'DataInitializer', 'UrlInitializer', '$translate',
   function ($http, $routeParams, $q, DataInitializer, UrlInitializer, $translate) {
     var self = this;
-    var selectedLanguage = $translate.use();
     var urls = UrlInitializer.getUrls();
 
     DataInitializer.getItems(urls.info).then(function (result) {

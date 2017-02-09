@@ -7,11 +7,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4" ng-repeat="movie in $ctrl.data | filter: {title : search}">
+        <div class="col-md-4" ng-repeat="movie in $ctrl.data | filter: search">
             <div class="thumbnail movie">
-                <img class="movie-img" ng-src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="...">
+                <a href="#!/{{$ctrl.type}}/details/{{movie.id}}"><img class="movie-img" ng-src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="..."></a>
                 <div class="caption">
-                    <h3>{{movie.title}}</h3>
+                    <a href="#!/{{$ctrl.type}}/details/{{movie.id}}"><h3 ng-if="movie.name != underfined">{{movie.name}}</h3>
+                    <h3 ng-if="movie.title != underfined">{{movie.title}}</h3></a>
                     <p>{{movie.overview | limitTo: 150}}{{movie.overview.length > 150 ? '...' : ''}}</p>
                     <p class=""><a href="#!/{{$ctrl.type}}/details/{{movie.id}}" class="btn btn-primary" role="button">{{'MORE' | translate}}</a></p>
                 </div>

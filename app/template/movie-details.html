@@ -6,7 +6,8 @@
             </div>
         </div>
         <div class="col-sm-8">
-            <h1>{{$ctrl.data.title}}</h1>
+            <h1 nf-if="$ctrl.data.name != underfined">{{$ctrl.data.name}}</h1>
+            <h1 nf-if="$ctrl.data.title != underfined">{{$ctrl.data.title}}</h1>
             <h3>{{'OVERVIEW' | translate}}</h3>
             <p>{{$ctrl.data.overview}}</p>
             <table class="table">
